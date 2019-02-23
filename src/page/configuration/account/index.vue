@@ -13,13 +13,13 @@
              @handleSelectionChange="handleSelectionChange"
              @openDialog="openDialog"/>
 
-    <ftooter-pages
-      :pagination="pagination"
-      :multipleSelection="multipleSelection"
-      @deleteMany="deleteMany"
-      @selectAll="selectAll"
-      @canselAll="canselAll"
-      @handleCurrentChange="handleCurrentChange"/>
+    <!--<ftooter-pages-->
+      <!--:pagination="pagination"-->
+      <!--:multipleSelection="multipleSelection"-->
+      <!--@deleteMany="deleteMany"-->
+      <!--@selectAll="selectAll"-->
+      <!--@canselAll="canselAll"-->
+      <!--@handleCurrentChange="handleCurrentChange"/>-->
 
     <v-dialog :centerDialogVisible="centerDialogVisible"
               :form="form"

@@ -5,7 +5,7 @@
     border stripe
     ref="multipleTable"
     @selection-change="handleSelectionChange"
-    style="width: 100%">
+    style="width: 50%">
     <el-table-column
       type="selection"
       width="55">
@@ -27,23 +27,23 @@
       prop="accountNo"
       label="账号">
     </el-table-column>
-    <el-table-column
-      label="初始金额" width="150px">
-      <template slot-scope="scope">
-        <span>{{ scope.row.initMoney | fixedTo2 }}</span>
-      </template>
-    </el-table-column>
-    <el-table-column
-      label="账户余额" width="150px">
-      <template slot-scope="scope">
-        <span>{{ scope.row.balance | fixedTo2 }}</span>
-      </template>
-    </el-table-column>
-    <el-table-column
-      prop="remark"
-      label="备注">
-    </el-table-column>
-    <el-table-column label="操作" width="300" fixed="right">
+    <!--<el-table-column-->
+      <!--label="初始金额" width="150px">-->
+      <!--<template slot-scope="scope">-->
+        <!--<span>{{ scope.row.initMoney | fixedTo2 }}</span>-->
+      <!--</template>-->
+    <!--</el-table-column>-->
+    <!--<el-table-column-->
+      <!--label="账户余额">-->
+      <!--<template slot-scope="scope">-->
+        <!--<span>{{ scope.row.balance | fixedTo2 }}</span>-->
+      <!--</template>-->
+    <!--</el-table-column>-->
+    <!--<el-table-column-->
+      <!--prop="remark"-->
+      <!--label="备注">-->
+    <!--</el-table-column>-->
+    <el-table-column label="操作" >
       <template slot-scope="scope">
         <el-button
           size="small"

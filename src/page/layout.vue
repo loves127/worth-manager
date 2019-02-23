@@ -48,7 +48,7 @@
     height: 100vh;
     .console-main {
       width: 100%;
-      /*overflow-y: scroll;*/
+      overflow-y: scroll;
       &.console-main-full {
         margin-left: 130px;
       }

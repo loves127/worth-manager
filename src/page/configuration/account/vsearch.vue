@@ -12,7 +12,7 @@
     <el-form-item>
       <el-button type="primary" @click="$emit('onSearch',search)">查询</el-button>
     </el-form-item>
-    <el-form-item style="float: right">
+    <el-form-item>
       <el-button type="primary" @click="$emit('openDialog','新增账户','')">新增</el-button>
     </el-form-item>
   </el-form>
