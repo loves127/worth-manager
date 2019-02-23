@@ -1,0 +1,85 @@
+export default [{
+  id: 1,
+  _class: 'icon-gongzi'
+}, {
+  id: 2,
+  _class: 'icon-92'
+}, {
+  id: 3,
+  _class: 'icon-aixinjuanzeng'
+}, {
+  id: 4,
+  _class: 'icon-jujia'
+}, {
+  id: 5,
+  _class: 'icon-lingshi'
+}, {
+  id: 6,
+  _class: 'icon-yiliao'
+}, {
+  id: 7,
+  _class: 'icon-caipiao'
+}, {
+  id: 8,
+  _class: 'icon-qiche'
+}, {
+  id: 9,
+  _class: 'icon-zhufang'
+}, {
+  id: 10,
+  _class: 'icon-weixiu'
+}, {
+  id: 11,
+  _class: 'icon-haizi'
+}, {
+  id: 12,
+  _class: 'icon-changbei'
+}, {
+  id: 13,
+  _class: 'icon-lijin'
+}, {
+  id: 14,
+  _class: 'icon-yundong'
+}, {
+  id: 15,
+  _class: 'icon-37'
+}, {
+  id: 16,
+  _class: 'icon-iconset0116'
+}, {
+  id: 17,
+  _class: 'icon-78lvxing'
+}, {
+  id: 18,
+  _class: 'icon-fushi'
+}, {
+  id: 19,
+  _class: 'icon-bangong'
+}, {
+  id: 20,
+  _class: 'icon-chongwu'
+}, {
+  id: 21,
+  _class: 'icon-jiaotong'
+}, {
+  id: 22,
+  _class: 'icon-shejiao'
+}, {
+  id: 23,
+  _class: 'icon-shuji'
+}, {
+  id: 24,
+  _class: 'icon-shuma'
+}, {
+  id: 25,
+  _class: 'icon-tongxun'
+}, {
+  id: 26,
+  _class: 'icon-gouwu'
+}, {
+  id: 27,
+  _class: 'icon-truck'
+}, {
+  id: 28,
+  _class: 'icon-riyongpin'
+}]
