@@ -12,9 +12,9 @@
           <el-option :label="i.incomeType" v-model="i.incomeType" v-for="(i,index) in incomeTypeList" :key="index"/>
         </el-select>
       </el-form-item>
-      <el-form-item label="类型图标" :label-width="formLabelWidth">
-          <i ref="iconRef" :data-icon="i.icon" class="iconfont icon-show" :class="i.icon" v-for="(i,index) in incomeTypeList" v-if="form.incomeType===i.incomeType" :key="index"></i>
-      </el-form-item>
+      <!--<el-form-item label="类型图标" :label-width="formLabelWidth">-->
+          <!--<i ref="iconRef" :data-icon="i.icon" class="iconfont icon-show" :class="i.icon" v-for="(i,index) in incomeTypeList" v-if="form.incomeType===i.incomeType" :key="index"></i>-->
+      <!--</el-form-item>-->
       <el-form-item label="账户类型" :label-width="formLabelWidth">
         <el-select v-model="form.accountName" placeholder="请选择支出账户">
           <el-option :label="e.accountName" v-model="e.accountName" v-for="(e,index) in accountNameList" :key="index"/>
