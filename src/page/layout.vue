@@ -58,7 +58,10 @@
         line-height: 50px;
       }
       .contaniner{
-        margin: 0 10px 10px 10px;
+        overflow-x: hidden;
+        /*margin: 5px 0;*/
+        padding: 0 5px;
+        /*background-color: #f3f3f3;*/
       }
     }
   }

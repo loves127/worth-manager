@@ -1,13 +1,13 @@
 <template>
   <div class="quick-container">
-    <el-row :gutter="10">
-      <el-col :md="20">
+    <el-row :gutter="10" style="background-color: #fff">
+      <el-col :md="18">
         <div class="expenses-charts">
-          <div id="myChart1" :style="{width: '100%', height: '500px'}"></div>
-          <div id="myChart2" :style="{width: '100%', height: '500px'}"></div>
+          <div id="myChart1"></div>
+          <div id="myChart2" style="margin-top: 10px;"></div>
         </div>
       </el-col>
-      <el-col :md="4" class="grid-content">
+      <el-col :md="6" class="grid-content">
         <el-card class="box-card">
           <div slot="header">
             <span>与上月相比</span>
@@ -261,7 +261,7 @@
     }
     .grid-content{
       line-height: 25px;
-      margin-top: 10px;
+      /*margin-top: 10px;*/
       p{
         padding: 10px;
       }
@@ -312,7 +312,9 @@
     justify-content: space-between;
     /*padding: 10px 0;*/
     #myChart1,#myChart2{
-      margin: 10px auto;
+      /*margin: 10px auto;*/
+      width: 100%;
+      height:500px;
       box-sizing: border-box;
       border: 1px solid rgba(0,0,0,0.1);
       border-radius: 8px;

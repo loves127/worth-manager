@@ -72,7 +72,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <detail-dialog :centerDialogVisible="centerDialogVisible" @closeDialog = "closeDialog" :detail="detail"/>
+    <detail-dialog :detail="detail" ref="ddialog"/>
   </div>
 
 </template>
@@ -92,7 +92,7 @@
     },
     data(){
       return {
-        centerDialogVisible:false,
+//        centerDialogVisible:false,
         detail: {
           incomeType: '',
           accountName: '',
@@ -144,8 +144,9 @@
 
       // 查看记录
       handleDetailView(index,row){
-        this.centerDialogVisible = true;
-        console.log(row)
+//        this.centerDialogVisible = true;
+        this.$refs.ddialog.openDialog();
+//        console.log(row)
         this.detail = row;
       },
 

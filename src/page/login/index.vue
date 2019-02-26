@@ -102,7 +102,7 @@
             cookies.token = (new Date()).getTime();
           }
           $sto.set($conf.constant.cookie, cookies);
-          that.$router.push({path: '/quick'});
+          that.$router.push({path: '/analysis'});
         } else {
           that.$message.error(res.msg);
         }

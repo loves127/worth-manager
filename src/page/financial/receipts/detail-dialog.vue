@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     title="详情"
-    :visible.sync="centerDialogVisible"
+    :visible.sync="dialogVisible"
     width="200px"
     center>
     <el-form  :form="detail" :label-position="labelPosition">
@@ -24,9 +24,9 @@
         <el-input type="textarea" v-model="detail.remark" :disabled="true"/>
       </el-form-item>
     </el-form>
-    <span slot="footer" class="dialog-footer">
-      <el-button @click="$emit('closeDialog')">关闭</el-button>
-    </span>
+    <!--<span slot="footer" class="dialog-footer">-->
+      <!--<el-button @click="$emit('closeDialog')">关闭</el-button>-->
+    <!--</span>-->
   </el-dialog>
 </template>
 
@@ -46,7 +46,8 @@
       return{
         labelPosition: 'right',
         formLabelWidth: '70px',
-        selectIcon:''
+        selectIcon:'',
+        dialogVisible:false
       }
     },
     created(){
@@ -55,6 +56,11 @@
     computed:{
       money:function () {
         return '¥'+this.detail.money+'.00'
+      }
+    },
+    methods:{
+      openDialog(){
+         this.dialogVisible = true
       }
     }
   }

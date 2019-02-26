@@ -2,8 +2,9 @@ import Config from '../config/index';
 
 const Login = r => require.ensure([], () => r(require('../page/login/index')), 'login');
 const Layout = r => require.ensure([], () => r(require('../page/layout')), 'layout');
-// 快速入门
-const Quick = r => require.ensure([], () => r(require('../page/quick/quick')), 'quick');
+// 控制台
+const Analysis = r => require.ensure([], () => r(require('../page/console/analysis')), 'analysis');
+const Console = r => require.ensure([], () => r(require('../page/console/console.vue')), 'console');
 
 // 组织管理 -- 用户管理
 const User = r => require.ensure([], () => r(require('../page/organization/user/index')), 'user');
@@ -57,13 +58,21 @@ export default [{
   name: 'Layout',
   component: Layout,
   children: [{
-    path: '/quick',
-    name: 'Quick',
-    component: Quick,
+    path: '/analysis',
+    name: 'Analysis',
+    component: Analysis,
     meta: {
-      bcrumd: ['控制面板']
+      bcrumd: ['分析页']
     }
-  }, {
+  },{
+    path: '/console',
+    name: 'Console',
+    component: Console,
+    meta: {
+      bcrumd: ['控制台']
+    }
+  },
+    {
     path: '/user',
     name: 'User',
     component: User,

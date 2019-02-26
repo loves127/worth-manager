@@ -24,10 +24,10 @@
       prop="updateTime"
       label="更新时间">
     </el-table-column>
-    <el-table-column
-      prop="remark"
-      label="备注信息">
-    </el-table-column>
+    <!--<el-table-column-->
+      <!--prop="remark"-->
+      <!--label="备注信息">-->
+    <!--</el-table-column>-->
     <el-table-column
       prop="state"
       label="状态">

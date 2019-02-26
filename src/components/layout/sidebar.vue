@@ -18,9 +18,13 @@
           <i class="iconfont icon-914caidan_mokuai"></i>
           <span slot="title">控制台</span>
         </template>
-        <el-menu-item index="/quick">
+        <el-menu-item index="/analysis">
           <i class="iconfont icon-wenzhang"></i>
           <span slot="title">分析页</span>
+        </el-menu-item>
+        <el-menu-item index="/console">
+          <i class="iconfont icon-wenzhang"></i>
+          <span slot="title">控制台</span>
         </el-menu-item>
       </el-submenu>
       <el-submenu index="money">
