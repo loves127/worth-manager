@@ -127,7 +127,6 @@
       // 刷新表格
       reflash() {
         this.getList();
-        this.pieToShow({});
       },
       // 列表
       getList() {
@@ -145,7 +144,6 @@
             this.pagination.total = data.total;
           }
         })
-        this.pieToShow({});
         this.queryExDetail({});
       },
       // 新增支出
@@ -206,7 +204,6 @@
             this.pagination.total = data.total
           }
         });
-        this.pieToShow(_search);
         this.queryExDetail(_search);
       },
       // 点击当前页
@@ -319,192 +316,11 @@
         }
         selectDate.forEach(row => {
           this.$refs.table.setSelectAll(row);
-        });
+      });
       },
       // 取消全选
       canselAll(){
         this.$refs.table.canselAll();
-      },
-      // 饼图数据
-      pieToShow(_params){
-        const res = ExpenditureApi.findToPie(_params);
-        res.then((data) => {
-          if (data.state === '200') {
-            this.pieData = data.pieData.map(item=>{
-              return {value: item.sumMoney,name:item._id}
-            });
-            // 计算总额
-            if(data.total.length>0){
-              this.totalMoney = data.total[0].totalMoney;
-            }else{
-              this.totalMoney = 0;
-            }
-            this.lineData.date= data.lineData.map(item=>{
-               return formatDate(new Date(item._id), 'yyyy-MM-dd')
-            });
-            this.lineData.data = data.lineData.map(item=>{
-              return item.sumMoney
-            });
-            this.drawLine();
-          }
-        })
-      },
-      // 画图
-      drawLine() {
-        let _self = this;
-        // 基于准备好的dom，初始化echarts实例
-        let myChart = this.$echarts.init(document.getElementById('myChart1'));
-        let myChart1 = this.$echarts.init(document.getElementById('myChart2'));
-        let namrAry = _self.pieData.map(item=>{
-          return item.name
-        })
-        // 绘制图表
-        myChart.setOption({
-          backgroundColor: "#020d22",
-          title: {
-            "text": "支出类目分析",
-            "left": "center",
-            "y": "10",
-            "textStyle": {
-              "color": "#fff"
-            }
-          },
-          tooltip: {},
-          legend: {
-            orient: 'vertical',
-            top:'50',
-            left:'20',
-            x: 'left',
-            textStyle: {
-              color: "#fff"
-            },
-            data:namrAry,
-            formatter: function (name) {
-             let _v = _self.pieData.filter(item=>{
-                return item.name === name
-              });
-              return   name +'   ['+_v[0].value+']';
-            }
-          },
-          series: [{
-            name: '金额',
-            type: 'pie',
-            label: {
-              normal: {
-                formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-                backgroundColor: '#eee',
-                borderColor: '#aaa',
-                borderWidth: 1,
-                borderRadius: 4,
-                rich: {
-                  a: {
-                    color: '#999',
-                    lineHeight: 22,
-                    align: 'center'
-                  },
-                  hr: {
-                    borderColor: '#aaa',
-                    width: '100%',
-                    borderWidth: 0.5,
-                    height: 0
-                  },
-                  b: {
-                    fontSize: 16,
-                    lineHeight: 33
-                  },
-                  per: {
-                    color: '#eee',
-                    backgroundColor: '#334455',
-                    padding: [2, 4],
-                    borderRadius: 2
-                  }
-                }
-              }
-            },
-
-            data: _self.pieData
-          }]
-        });
-        // 绘制图表
-        myChart1.setOption({
-          backgroundColor: '#00265f',
-          // title: {text: '个人账户支出分析', left: 'left'},
-          title: {
-            "text": "个人账户支出分析",
-            "left": "center",
-            "y": "10",
-            "textStyle": {
-              "color": "#fff"
-            }
-          },
-          tooltip: {
-            "trigger": "axis",
-            "axisPointer": {
-              "type": "cross",
-              "crossStyle": {
-                "color": "#384757"
-              }
-            }
-          },
-          xAxis: {
-            "axisLabel": {
-              "show": true,
-              "textStyle": {
-                "color": "#7d838b"
-              }
-            },
-            axisLine: {
-              show: true,
-              lineStyle: {
-                color: "#063374",
-                width: 1,
-                type: "solid"
-              }
-            },
-            axisTick: {
-              show: false,
-            },
-            data: this.lineData.date
-          },
-          yAxis: {
-            name: '金额',
-            axisLine: {
-              show: false,
-              lineStyle: {
-                color: "#00c7ff",
-                width: 1,
-                type: "solid"
-              }
-            },
-            splitLine: {
-              lineStyle: {
-                color: "#063374",
-              }
-            }
-          },
-          series: [{
-            name: '日期',
-            type: 'line',
-            markPoint: {
-              data: [
-                {type: 'max', name: '最大支出'},
-                {type: 'min', name: '最小支出'}
-              ]
-            },
-            markLine: {
-              data: [
-                {type: 'average', name: '平均支出'}
-              ]
-            },
-            "itemStyle": {
-              "normal": {
-                "color": "#ffaa00"
-              }
-            },
-            data: this.lineData.data,
-            "smooth": true
-          }]
-        });
       },
       // 消费 sum avg max
       queryExDetail(_params) {

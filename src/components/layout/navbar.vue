@@ -38,7 +38,6 @@ export default {
       height: 100%;
       overflow-x: hidden;
       overflow-y: auto;
-      background-color: #eaedf1;
     }
     .el-menu-item-group__title {
       position: fixed;
@@ -79,6 +78,7 @@ export default {
     overflow: hidden;
     transition: all .2s ease;
     width: 150px;
+
     &.navbar-full {
       left: 180px;
     }
@@ -86,6 +86,7 @@ export default {
       width: 130px;
       overflow: hidden;
       position: absolute;
+
       top: 0px;
       bottom: 0px;
       right: 0px;

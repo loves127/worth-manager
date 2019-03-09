@@ -1,70 +1,35 @@
 <template>
-  <el-table
-    :data="tableData"
-    v-loading="vloading"
-    border stripe
-    ref="multipleTable"
-    @selection-change="handleSelectionChange"
-    style="width: 50%">
-    <el-table-column
-      type="selection"
-      width="55">
-    </el-table-column>
-    <el-table-column
-      prop="_id"
-      label="ID"
-      width="80">
-    </el-table-column>
-    <el-table-column
-      prop="accountName"
-      label="账户名称" width="100px">
-    </el-table-column>
-    <!--<el-table-column-->
-      <!--prop="bankName"-->
-      <!--label="开户银行" width="150px">-->
-    <!--</el-table-column>-->
-    <el-table-column width="200px"
-      prop="accountNo"
-      label="账号">
-    </el-table-column>
-    <!--<el-table-column-->
-      <!--label="初始金额" width="150px">-->
-      <!--<template slot-scope="scope">-->
-        <!--<span>{{ scope.row.initMoney | fixedTo2 }}</span>-->
-      <!--</template>-->
-    <!--</el-table-column>-->
-    <!--<el-table-column-->
-      <!--label="账户余额">-->
-      <!--<template slot-scope="scope">-->
-        <!--<span>{{ scope.row.balance | fixedTo2 }}</span>-->
-      <!--</template>-->
-    <!--</el-table-column>-->
-    <!--<el-table-column-->
-      <!--prop="remark"-->
-      <!--label="备注">-->
-    <!--</el-table-column>-->
-    <el-table-column label="操作" >
-      <template slot-scope="scope">
-        <el-button
-          size="small"
-          @click="handleEdit(scope.row._id)">
-          <i class="el-icon-edit"></i>
+  <div style="display: flex;flex-direction: row;flex-wrap: wrap;align-content: center;">
+    <el-card class="box-card" shadow="hover" :key="i" v-for="(item,i) in tableData">
+      <div slot="header" class="clearfix">
+        <span style="font-size: 15px;font-weight: 700">{{item.accountName}}</span>
+        <el-button style="float: right; padding: 3px 0" type="text" @click="handleDelete(i, item)">删除</el-button>
+        <el-button style="float: right; padding: 3px 0;margin-right: 10px;" type="text" @click="handleEdit(item._id)">
           编辑
         </el-button>
-        <el-button
-          size="small"
-          type="warning"
-          @click="handleDelete(scope.$index, scope.row)">
-          <i class="el-icon-delete"></i>
-          删除
-        </el-button>
-      </template>
-    </el-table-column>
-  </el-table>
+      </div>
+      <div class="item">
+        <span class="t_ht"> 账号</span>
+        <label class="text">{{item.accountNo}}</label>
+      </div>
+      <div class="item">
+        <span class="t_ht"> 初始金额</span>
+        <label for="" class="text">{{ item.initMoney | fixedTo2 }}</label>
+      </div>
+      <div class="item">
+        <span class="t_ht"> 账户余额</span>
+        <label for="" class="text">{{ item.balance | fixedTo2 }}</label>
+      </div>
+      <!--<div class="item">-->
+        <!--<span class="t_ht"> 备注</span>-->
+        <!--<label for="" class="text">{{item.remark}}</label>-->
+      <!--</div>-->
+    </el-card>
+  </div>
 </template>
 
 <script>
-  import {Table, TableColumn, Button, Icon, Tag} from 'element-ui';
+  import {Table, TableColumn, Button, Icon, Tag, Card} from 'element-ui';
   import AccountApi from '@/api/account';
   export default {
     name: "vtable",
@@ -73,14 +38,14 @@
       ElTableColumn: TableColumn,
       ElButton: Button,
       ElIcon: Icon,
-      ElTag: Tag
+      ElTag: Tag,
+      ElCard: Card
     },
-    props:['tableData','vloading'],
+    props: ['tableData', 'vloading'],
     data(){
-      return{
-      }
+      return {}
     },
-    methods:{
+    methods: {
       // 编辑公司
       handleEdit(_id){
         this.$emit('openDialog', '编辑账户', parseInt(_id))
@@ -88,15 +53,15 @@
       // 更新状态
       handleState(index, row){
         console.log(row)
-        let _state = row.state === '启用'?'停用':'启用';
-        let params={
+        let _state = row.state === '启用' ? '停用' : '启用';
+        let params = {
           _id: row._id,
-          state:_state
+          state: _state
         };
         let res = AccountApi.findByIdAndUpdate(params)
         res.then(() => {
           this.$message({
-            message: _state+'成功',
+            message: _state + '成功',
             type: 'success'
           });
           this.$emit('reflash');
@@ -134,11 +99,11 @@
         });
       },
       handleSelectionChange(_val){
-        this.$emit('handleSelectionChange',_val);
+        this.$emit('handleSelectionChange', _val);
       },
       // 设置全选
       setSelectAll(row){
-        this.$refs.multipleTable.toggleRowSelection(row,true);
+        this.$refs.multipleTable.toggleRowSelection(row, true);
       },
       // 取消全选
       canselAll(){
@@ -147,3 +112,33 @@
     }
   }
 </script>
+<style>
+  .t_ht {
+    font-size: 15px;
+  }
+
+  .text {
+    font-size: 15px;
+    color: #999;
+    float: right;
+  }
+
+  .item {
+    margin-bottom: 10px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+
+  .clearfix:after {
+    clear: both
+  }
+
+  .box-card {
+    width: 400px;
+    margin: 10px 15px;
+  }
+</style>

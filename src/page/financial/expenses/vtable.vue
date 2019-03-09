@@ -14,20 +14,21 @@
       v-loading="vloading">
       <el-table-column
         type="selection"
-        width="55">
+        >
       </el-table-column>
       <el-table-column
         label="类别"
+
         prop="expenditureType">
       </el-table-column>
       <el-table-column
         label="账户"
-        width="100px"
+
         prop="accountName">
       </el-table-column>
       <el-table-column
         label="账号"
-        width="150px"
+
         prop="accountNo">
       </el-table-column>
       <el-table-column
@@ -36,12 +37,10 @@
         prop="recordDate">
       </el-table-column>
       <el-table-column
-        width="150px"
         label="更新日期"
         prop="modifyDate">
       </el-table-column>
       <el-table-column
-        width="120px"
         label="金额">
         <template slot-scope="scope">
           <span>{{ scope.row.money | fixedTo2 }}</span>
@@ -50,7 +49,7 @@
       <el-table-column
         prop="tag"
         label="标签"
-        width="100">
+      >
         <template slot-scope="scope">
           <el-tag
             :type="scope.row.tag === '家' ? 'primary' : 'success'"
@@ -59,10 +58,9 @@
       </el-table-column>
       <el-table-column
         label="备注"
-        width="200px"
         prop="remark">
       </el-table-column>
-      <el-table-column label="操作" width="200px" fixed="right">
+      <el-table-column label="操作" width="200px">
         <template slot-scope="scope">
           <el-button
             size="small"

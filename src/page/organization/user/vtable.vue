@@ -87,7 +87,7 @@
         <span>{{ scope.row.remark }}</span>
       </template>
     </el-table-column>
-    <el-table-column label="操作" width="200" fixed="right">
+    <el-table-column label="操作">
       <template slot-scope="scope">
         <el-button size="small" @click="handleEdit(scope.row._id)">
           <i class="el-icon-edit"></i>

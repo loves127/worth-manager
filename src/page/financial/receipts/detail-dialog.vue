@@ -51,7 +51,7 @@
       }
     },
     created(){
-      console.log(this.detail)
+//      console.log(this.detail)
     },
     computed:{
       money:function () {

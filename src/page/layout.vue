@@ -48,7 +48,9 @@
     height: 100vh;
     .console-main {
       width: 100%;
+      background-color: #f0f2f5;
       overflow-y: scroll;
+
       &.console-main-full {
         margin-left: 130px;
       }
@@ -56,11 +58,12 @@
         padding: 0 10px;
         height: 50px;
         line-height: 50px;
+        background-color: #fff;
       }
       .contaniner{
         overflow-x: hidden;
         /*margin: 5px 0;*/
-        padding: 0 5px;
+        /*padding: 0 10px;*/
         /*background-color: #f3f3f3;*/
       }
     }

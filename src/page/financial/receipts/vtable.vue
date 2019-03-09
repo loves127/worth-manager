@@ -8,11 +8,11 @@
       v-loading="vloading">
       <el-table-column
         type="selection"
-        width="55">
+        >
       </el-table-column>
       <el-table-column
         label="ID"
-        prop="_id" width="55">
+        prop="_id">
       </el-table-column>
       <el-table-column
         label="类别">
@@ -47,7 +47,7 @@
       <!--label="备注"-->
       <!--prop="remark">-->
       <!--</el-table-column>-->
-      <el-table-column label="操作" width="300px">
+      <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button
             size="small"
