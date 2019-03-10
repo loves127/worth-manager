@@ -116,7 +116,7 @@
         labelPosition: 'right',
         pagination: {
           curPage: 1, // 默认当前页
-          rows: 5, // 每页显示的数据
+          rows: 10, // 每页显示的数据
           total: 0 // 总条数
         }
       }
@@ -153,7 +153,7 @@
               });
               let params = {
                 curPage: 1, // 默认当前页
-                rows: 5, // 每页显示的数据
+                rows: 10, // 每页显示的数据
               };
               this.getList(params);
               this.dialogVisible = false
@@ -171,7 +171,7 @@
             });
             let params = {
               curPage: 1, // 默认当前页
-              rows: 5, // 每页显示的数据
+              rows: 10, // 每页显示的数据
             };
             this.getList(params);
             this.dialogVisible = false
@@ -203,7 +203,7 @@
       },
       // 下一页
       nextPage() {
-        if (this.pagination.curPage >= Math.ceil(this.pagination.total / 5.0)) {
+        if (this.pagination.curPage >= Math.ceil(this.pagination.total / 10.0)) {
           console.log('不能下一页了');
           return
         }
@@ -228,7 +228,7 @@
               });
               let params = {
                 curPage: 1, // 默认当前页
-                rows: 5, // 每页显示的数据
+                rows: 10, // 每页显示的数据
               };
               this.getList(params);
             } else {

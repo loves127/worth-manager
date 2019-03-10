@@ -329,6 +329,7 @@
           this.avgMoney= data.avgEx;
           this.minMoney=data.minEx;
           this.maxMoney = data.maxEx;
+          this.totalMoney = data.totalEx;
           }
         )
       }
